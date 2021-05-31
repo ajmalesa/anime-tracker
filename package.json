@@ -47,7 +47,7 @@
   "config": {
     "pre-git": {
       "pre-commit": [],
-      "pre-push": ["npm run pre-commit-test"],
+      "pre-push": ["npm run pre-push-test"],
       "post-commit": [],
       "post-checkout": [],
       "post-merge": []
