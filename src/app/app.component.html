@@ -1,1 +1,6 @@
-<span>{{ title }} app is running!</span>
+<span><h1>{{ title }}</h1></span>
+
+<div *ngFor="let anime of animes">
+    <app-anime [anime]="anime">
+    </app-anime>
+</div>

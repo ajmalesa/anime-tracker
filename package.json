@@ -9,7 +9,7 @@
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test" : "cypress open",
-    "pre-commit-test": "start-server-and-test start http://localhost:4200 cy:run",
+    "pre-push-test": "start-server-and-test start http://localhost:4200 cy:run",
     "commit": "commit-wizard"
   },
   "private": true,
@@ -46,8 +46,8 @@
   },
   "config": {
     "pre-git": {
-      "pre-commit": ["npm run pre-commit-test"],
-      "pre-push": [],
+      "pre-commit": [],
+      "pre-push": ["npm run pre-commit-test"],
       "post-commit": [],
       "post-checkout": [],
       "post-merge": []
