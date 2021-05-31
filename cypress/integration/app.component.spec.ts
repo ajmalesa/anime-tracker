@@ -1,4 +1,4 @@
-it('loads examples', () => {
+it('Loads home page correctly', () => {
   cy.visit('/');
   cy.contains('Anime Tracker');
 });
