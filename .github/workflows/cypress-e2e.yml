@@ -5,7 +5,7 @@ name: End-to-End tests
 
 on:
   push:
-    branches: [ master ]
+    branches: [ main ]
 
 jobs:
   build:
@@ -30,4 +30,4 @@ jobs:
       run: npm ci
 
     - name: Run e2e tests
-      run: npm run test
+      run: npm test
