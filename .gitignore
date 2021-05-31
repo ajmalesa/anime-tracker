@@ -44,5 +44,6 @@ testem.log
 .DS_Store
 Thumbs.db
 
-# Test videos
+# Test videos and screenshots
 cypress/videos/*
+cypress/screenshots/*
