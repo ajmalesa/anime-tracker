@@ -7,5 +7,4 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class AnimeComponent  {
   @Input() anime: any;
-
 }
