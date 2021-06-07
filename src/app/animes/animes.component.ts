@@ -13,7 +13,7 @@ export class AnimesComponent implements OnInit {
 
   ngOnInit() {
     this.http
-      .get<any>('https://kitsu.io/api/edge/anime')
+      .get<any>('https://kitsu.io/api/edge/anime?sort=-averageRating')
       .subscribe(
         data => {
           console.log('Success: ', data);
