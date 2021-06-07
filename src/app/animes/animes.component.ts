@@ -12,10 +12,15 @@ export class AnimesComponent implements OnInit {
   constructor(private http: HttpClient) { }
 
   ngOnInit() {
-    // Simple GET request with response type <any>
-    this.http.get<any>('https://kitsu.io/api/edge/anime').subscribe(data => {
-      this.animes = data.data;
-      console.log(this.animes);
-    })
+    this.http
+      .get<any>('https://kitsu.io/api/edge/anime')
+      .subscribe(
+        data => {
+          console.log('Success: ', data);
+          this.animes = data.data;
+        },
+        error => {
+          console.log('Error: ', error);
+        });
   }
 }

@@ -5,6 +5,6 @@ import { Component, Input, OnInit } from '@angular/core';
   templateUrl: './anime.component.html',
   styleUrls: ['./anime.component.scss']
 })
-export class AnimeComponent  {
+export class AnimeComponent {
   @Input() anime: any;
 }
