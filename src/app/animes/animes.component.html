@@ -5,11 +5,9 @@ Sort:
     </option>
 </select>
 
-<div *ngIf="animes">
-    <div *ngFor="let anime of animes">
-        <app-anime [anime]="anime">
-        </app-anime>
-    </div>
+<div class="animes-container" *ngIf="animes">
+    <app-anime *ngFor="let anime of animes" [anime]="anime">
+    </app-anime>
 </div>
 
 <div *ngIf="!animes">

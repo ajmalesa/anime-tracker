@@ -1,1 +1,6 @@
-<p>{{ anime.attributes.canonicalTitle }}</p>
+<figure>
+    <img src="{{ anime.attributes.posterImage.small}}" alt="Anime Poster Image">
+    <figcaption class="anime-image-caption">
+        {{ anime.attributes.canonicalTitle}}
+    </figcaption>
+</figure>
