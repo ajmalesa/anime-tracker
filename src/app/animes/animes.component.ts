@@ -22,6 +22,8 @@ export class AnimesComponent implements OnInit {
   constructor(private http: HttpClient) { }
 
   onSortOptionChange(eventValue: Event) {
+    this.animes = "";
+
     this.http
     .get<any>(`https://kitsu.io/api/edge/anime?sort=-${(<HTMLInputElement>eventValue.target).value}`)
     .subscribe(

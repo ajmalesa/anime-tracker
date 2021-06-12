@@ -1,11 +1,17 @@
-<p>Sort:</p>
+Sort:
 <select (change)="onSortOptionChange($event)">
     <option *ngFor="let sortOption of sortOptions" value="{{sortOption.value}}">
         {{sortOption.display}}
     </option>
 </select>
 
-<div *ngFor="let anime of animes">
-    <app-anime [anime]="anime">
-    </app-anime>
+<div *ngIf="animes">
+    <div *ngFor="let anime of animes">
+        <app-anime [anime]="anime">
+        </app-anime>
+    </div>
+</div>
+
+<div *ngIf="!animes">
+    <p>Loading</p>
 </div>
