@@ -9,11 +9,25 @@
 
 <hr />
 
-<div class="animes-container" *ngIf="animes">
-    <app-anime *ngFor="let anime of animes" [anime]="anime">
-    </app-anime>
+<div *ngIf="animes">
+    <ng-container [ngTemplateOutlet]="paginationButtons">
+    </ng-container>
+
+    <div class="animes-container">
+        <app-anime *ngFor="let anime of animes" [anime]="anime">
+        </app-anime>
+    </div>
+
+    <ng-container [ngTemplateOutlet]="paginationButtons">
+    </ng-container>
 </div>
 
-<div *ngIf="!animes">
+<div *ngIf="!animes" class="loading-container">
     <p>Loading</p>
 </div>
+
+<ng-template #paginationButtons>
+    <button class="previous-button" [disabled]="!(pageNumber > 1)" (click)="onPreviousPageButtonClick()">Previous</button>
+    Page: {{ pageNumber }}
+    <button class="next-button" (click)="onNextPageButtonClick()">Next</button>
+</ng-template>

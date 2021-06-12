@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 
 @Component({
   selector: 'app-animes',
@@ -8,38 +8,54 @@ import { HttpClient } from '@angular/common/http';
 })
 export class AnimesComponent implements OnInit {
   animes!: string;
+  pageNumber = 1;
+  showPerPage = 20;
+  selectedSort = "averageRating";
   sortOptions = [
     {
       display: 'Average Rating',
       value: 'averageRating'
-    }, 
+    },
     {
       display: 'Start Date',
       value: 'startDate'
-    }, 
+    },
   ]
 
   constructor(private http: HttpClient) { }
 
-  onSortOptionChange(eventValue: Event) {
-    this.animes = "";
-
-    this.http
-    .get<any>(`https://kitsu.io/api/edge/anime?sort=-${(<HTMLInputElement>eventValue.target).value}`)
-    .subscribe(
-      data => {
-        console.log('Success: ', data);
-        this.animes = data.data;
-      },
-      error => {
-        console.log('Error: ', error);
-      });
-    console.log((<HTMLInputElement>eventValue.target).value);
+  ngOnInit() {
+    this.getAnimes();
   }
 
-  ngOnInit() {
+  onSortOptionChange(eventValue: Event) {
+    this.selectedSort = <string>(<HTMLInputElement>eventValue.target).value;
+
+    this.getAnimes();
+  }
+
+  onPreviousPageButtonClick() {
+    this.pageNumber--;
+
+    this.getAnimes();
+  }
+
+  onNextPageButtonClick() {
+    this.pageNumber++;
+
+    this.getAnimes();
+  }
+
+  getAnimes() {
+    this.animes = "";
+
+    const params = new HttpParams()
+      .set('sort', "-" + this.selectedSort)
+      .set('page[limit]', this.showPerPage)
+      .set('page[offset]', (this.pageNumber - 1) * this.showPerPage)
+
     this.http
-      .get<any>('https://kitsu.io/api/edge/anime?sort=-averageRating')
+      .get<any>(`https://kitsu.io/api/edge/anime`, { params })
       .subscribe(
         data => {
           console.log('Success: ', data);
