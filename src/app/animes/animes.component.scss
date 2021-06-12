@@ -1,5 +1,13 @@
 .animes-container {
     display: flex;
     flex-wrap: wrap;
-    padding: 0 4px;
+}
+
+.options {
+    margin-left: 45px;
+}
+
+h2,
+select {
+    display: inline;
 }
