@@ -1,6 +1,6 @@
 <div class="options">
-    <h2>Sort </h2>
-    <select (change)="onSortOptionChange($event)">
+    <h2 class="display-inline">Sort </h2>
+    <select class="display-inline" (change)="onSortOptionChange($event)">
         <option *ngFor="let sortOption of sortOptions" value="{{sortOption.value}}">
             {{sortOption.display}}
         </option>
@@ -8,7 +8,7 @@
 </div>
 
 <hr />
-
+ 
 <div *ngIf="animes">
     <ng-container [ngTemplateOutlet]="paginationButtons">
     </ng-container>
