@@ -4,6 +4,17 @@
         alt="Anime Poster Image"
     />
     <figcaption class="anime-image-caption">
-        {{ anime.attributes.canonicalTitle }}
+        <p>
+            <strong>Title</strong><br />
+            {{ anime.attributes.canonicalTitle }}
+        </p>
+        <p *ngIf="anime.attributes.averageRating">
+            <strong>Average Rating<br /></strong>
+            {{ anime.attributes.averageRating }} / 100
+        </p>
+        <p>
+            <strong>First Episode Airdate<br /></strong>
+            {{ anime.attributes.startDate }}
+        </p>
     </figcaption>
 </figure>
