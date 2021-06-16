@@ -1,25 +1,31 @@
 <div class="options">
-    <h2 class="display-inline">Sort </h2>
+    <h2 class="display-inline">Sort&nbsp;</h2>
+
     <select class="display-inline" (change)="onSortOptionChange($event)">
-        <option *ngFor="let sortOption of sortOptions" value="{{sortOption.value}}">
-            {{sortOption.display}}
+        <option
+            *ngFor="let sortOption of sortOptions"
+            value="{{ sortOption.value }}"
+        >
+            {{ sortOption.display }}
         </option>
     </select>
 </div>
 
 <hr />
- 
+
 <div *ngIf="animes">
-    <ng-container [ngTemplateOutlet]="paginationButtons">
-    </ng-container>
+    <ng-container [ngTemplateOutlet]="paginationButtons"> </ng-container>
 
     <div class="animes-container">
-        <app-anime class="anime-card" *ngFor="let anime of animes" [anime]="anime">
+        <app-anime
+            class="anime-card"
+            *ngFor="let anime of animes"
+            [anime]="anime"
+        >
         </app-anime>
     </div>
 
-    <ng-container [ngTemplateOutlet]="paginationButtons">
-    </ng-container>
+    <ng-container [ngTemplateOutlet]="paginationButtons"> </ng-container>
 </div>
 
 <div *ngIf="!animes" class="loading-container">
@@ -27,7 +33,15 @@
 </div>
 
 <ng-template #paginationButtons>
-    <button class="previous-button" [disabled]="!(pageNumber > 1)" (click)="onPreviousPageButtonClick()">Previous</button>
+    <button
+        class="previous-button"
+        [disabled]="!(pageNumber > 1)"
+        (click)="onPreviousPageButtonClick()"
+    >
+        Previous
+    </button>
+
     Page: {{ pageNumber }}
+
     <button class="next-button" (click)="onNextPageButtonClick()">Next</button>
 </ng-template>
