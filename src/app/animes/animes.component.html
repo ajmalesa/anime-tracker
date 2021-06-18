@@ -1,7 +1,7 @@
 <div class="options mt-3">
     <h5 class="display-inline">Sort&nbsp;</h5>
 
-    <select class="display-inline form-control-sm" (change)="onSortOptionChange($event)">
+    <select class="display-inline form-control-sm bg-secondary text-light" (change)="onSortOptionChange($event)">
         <option
             *ngFor="let sortOption of sortOptions"
             value="{{ sortOption.value }}"
