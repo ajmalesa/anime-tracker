@@ -1,7 +1,7 @@
-<div class="options">
-    <h2 class="display-inline">Sort&nbsp;</h2>
+<div class="options mt-3">
+    <h5 class="display-inline">Sort&nbsp;</h5>
 
-    <select class="display-inline" (change)="onSortOptionChange($event)">
+    <select class="display-inline form-control-sm" (change)="onSortOptionChange($event)">
         <option
             *ngFor="let sortOption of sortOptions"
             value="{{ sortOption.value }}"
@@ -13,7 +13,7 @@
 
 <hr />
 
-<div *ngIf="animes">
+<div *ngIf="animes" class="mb-3">
     <ng-container [ngTemplateOutlet]="paginationButtons"> </ng-container>
 
     <div class="animes-container">
@@ -34,14 +34,19 @@
 
 <ng-template #paginationButtons>
     <button
-        class="previous-button"
+        class="btn btn-secondary btn-sm previous-button"
         [disabled]="!(pageNumber > 1)"
         (click)="onPreviousPageButtonClick()"
     >
         Previous
     </button>
 
-    Page: {{ pageNumber }}
+    Page {{ pageNumber }}
 
-    <button class="next-button" (click)="onNextPageButtonClick()">Next</button>
+    <button
+        class="btn btn-secondary btn-sm next-button"
+        (click)="onNextPageButtonClick()"
+    >
+        Next
+    </button>
 </ng-template>
