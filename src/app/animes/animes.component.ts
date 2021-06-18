@@ -13,11 +13,11 @@ export class AnimesComponent implements OnInit {
   selectedSort = "averageRating";
   sortOptions = [
     {
-      display: 'Average Rating',
+      display: 'Average Rating ↓',
       value: 'averageRating'
     },
     {
-      display: 'Start Date',
+      display: 'Start Date ↓',
       value: 'startDate'
     },
   ]
