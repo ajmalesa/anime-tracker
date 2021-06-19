@@ -1,8 +1,15 @@
 <figure>
     <img
+        *ngIf="anime.attributes.posterImage"
         src="{{ anime.attributes.posterImage.small }}"
         alt="Anime Poster Image"
     />
+    <p
+        class="text-warning text-center missing-image-warning mt-5 mb-5"
+        *ngIf="!anime.attributes.posterImage"
+    >
+        No image for this title from API
+    </p>
     <figcaption class="anime-image-caption">
         <p class="ml-3 mt-2">
             <strong class="text-success">Title</strong><br />
