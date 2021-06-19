@@ -10,15 +10,15 @@ export class AnimesComponent implements OnInit {
   animes!: string;
   pageNumber = 1;
   showPerPage = 20;
-  selectedSort = "averageRating";
+  selectedSort = "-averageRating";
   sortOptions = [
     {
       display: 'Average Rating ↓',
-      value: 'averageRating'
+      value: '-averageRating'
     },
     {
       display: 'Start Date ↓',
-      value: 'startDate'
+      value: '-startDate'
     },
   ]
 
@@ -50,7 +50,7 @@ export class AnimesComponent implements OnInit {
     this.animes = "";
 
     const params = new HttpParams()
-      .set('sort', "-" + this.selectedSort)
+      .set('sort', this.selectedSort)
       .set('page[limit]', this.showPerPage)
       .set('page[offset]', (this.pageNumber - 1) * this.showPerPage)
 
